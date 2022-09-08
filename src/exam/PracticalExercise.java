@@ -1,0 +1,78 @@
+/*
+ * Instructions:
+ * 
+ * 1. The class is in the package exam
+ *    If you are using Dr.Java you need to create a folder
+ *    called exam (lowercase letters) and put the Java file there
+ * 2. Do the following:
+ *    2.1 Try to implement the first function. 
+ *    2.2 Write tests to check that you get the right result. 
+ *        If you do not submit tests you will have a lower mark
+ *    2.3 Submit your code to deliverIT 
+ *        http://vps142.cesvima.upm.es/
+ *    2.4 Once you have your code accepted, start with the 
+ *        second function. Go to Step 2.2.
+ * 3. Once you have finised or time is up, make sure that you upload 
+ *    your latest file to Moodle.
+ * 4. Upload the Codigo de Honestidad file. You have until tomorrow 
+ *    to do that
+ *   
+ */ 
+
+package exam;
+
+class PracticalExercise{
+  
+  /* FUNCTION: productEvenPos(collection of integers col) -> integer
+   * PRE: col is not null
+   * POST: the result is the product of the numbers in the even 
+   * positions in col
+   * EXAMPLES:
+   *    productEvenPos([]) -> 0
+   *    productEvenPos([2]) -> 2
+   *    productEvenPos([2,3]) -> 2
+   *    productEvenPos([2,3,6,6,8]) -> 96
+   */ 
+  static int productEvenPos(int[] col){
+   int n; 
+   if(col.length== 0)
+    n=0;
+   else 
+    n=1;
+    for(int i=0; i<col.length; i++) {
+     if(i%2 == 0) 
+     n= col[i]*n;
+   }
+    return n;
+  }
+  
+  /* FUNCTION: isOrdered(collection of integers col) -> boolean
+   * PRE: col is not null
+   * POST: the result is true if col is ordered in ascending order
+   * and false otherwise
+   * EXAMPLES:
+   *    isOrdered([2,3,6,6,8]) -> true
+   *    isOrdered([2,6,5,7]) -> false
+   */ 
+  static boolean isOrdered(int[] col){
+   boolean result =true; int i=0;
+   for(i=0; i<col.length-1; i++) {
+    if(col[i]>col[i+1])
+     result= false;
+   }
+    return result;
+  }
+  
+  
+  public static void main(String[] args) {
+    //write your tests here
+   int[] a = new int[] {2,3,6,6,8};
+   int[] a2 = new int[] {};
+   int[] b = new int[] {2,6,5,7};
+   System.out.println(productEvenPos(a));
+   System.out.println(productEvenPos(a2));
+   System.out.println(isOrdered(a));
+   System.out.println(isOrdered(b));
+  }
+  
+}
